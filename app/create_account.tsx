@@ -1,17 +1,23 @@
-//index.tsx is initial route
-
-import { useRouter } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
-const router = useRouter();
+import { router } from 'expo-router';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 //UX FILE - IMMEDIATELY CONTROLS UI
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Time Capsule!</Text>
+      <Text style={styles.title}>What is your name?</Text>
+      
+      <View> 
+        <TextInput placeholder="Enter your name"
+        />
+      </View>
+      <Button
+        title="Start"
+        onPress={() => router.push("/questions")} // navigate to questions.tsx
+      />
+
     </View>
   );
 }
-//edit between text tags to change name
 
 const styles = StyleSheet.create({
   container: {
@@ -26,6 +32,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     color: '#003049',
-    marginBottom: 20,
   }
 }); //behaves like css
